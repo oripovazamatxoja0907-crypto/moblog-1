@@ -171,6 +171,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const talabaRoutes = require('./src/routes/talaba.routes');
 const postRoutes = require('./src/routes/post.routes');
+const authRotes = require('./src/routes/auth.rautes');
 
 const app = express();
 
@@ -181,6 +182,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/talabalar', talabaRoutes);
 app.use('/posts', postRoutes);
+app.use('/auth', authRotes);
 
 app.get('/', (req, res) => {
   res.json({ success: true, message: 'Blog API ishlamoqda' });

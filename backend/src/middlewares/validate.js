@@ -3,14 +3,14 @@ function validate(schema) {
     const result = schema.safeParse(req.body);
 
     if (!result.success) {
-      const errors = result.error.issues.map(issue => ({
-        field: issue.path.join('.'),
-        message: issue.message
+      const errors = result.error.issues.map((issue) => ({
+        field: issue.path.join("."),
+        message: issue.message,
       }));
       return res.status(400).json({
         success: false,
-        error: 'Validatsiya xatosi',
-        details: errors
+        error: "Validatsiya xatosi",
+        details: errors,
       });
     }
 
